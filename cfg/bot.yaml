@@ -1,0 +1,12 @@
+bot:
+  debug: true
+#  TODO: to vault
+  bot_key: 1652329832:AAHSL2CrNQt19fCGHzJcle_kjktyNofpmVs
+
+handlers:
+  fuji:
+    photos_path: ./asserts
+    photo_desc: 🚨фудж детектед🚨
+    trigger_words:
+      - фудж
+      - fuji
