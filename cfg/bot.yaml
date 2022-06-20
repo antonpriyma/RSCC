@@ -6,7 +6,7 @@ bot:
 handlers:
   fuji:
     photos_path: ./asserts
-    photo_desc: 🚨фудж детектед🚨
+    photo_desc:
     trigger_words:
       - фудж
       - fuji
