@@ -3,7 +3,7 @@ FROM golang:latest
 
 # Build bin
 WORKDIR /rscc_bot
-COPY . .
+COPY .. .
 RUN make build_api
 
 # Command to start container

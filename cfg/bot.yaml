@@ -1,6 +1,6 @@
 bot:
   debug: true
-#  TODO: to vault
+  #  TODO: to vault
   bot_key: 1652329832:AAHSL2CrNQt19fCGHzJcle_kjktyNofpmVs
 
 handlers:
@@ -10,3 +10,20 @@ handlers:
     trigger_words:
       - фудж
       - fuji
+  text:
+
+
+
+morning_greeter:
+  greeting_text: Доброе утро, чят ❤️! Напоминаю, что сегодня выездной четвергач
+  #   test_id
+  chat_id: -1001308366801
+  #  starts with Sunday
+  greeting_stickers:
+    - CAACAgIAAxkBAAMRYrDK0wEl3ZtEIoJ9uIAHXMbr8VUAAl0SAAIKLZFKmOut1YUOvJYoBA
+    - CAACAgIAAxkBAAMFYrDKhzGhUUF3uJO8nAMc8H4qNC0AAvQUAALG4JBK2MyjSmw7jlkoBA
+    - CAACAgIAAxkBAAMHYrDKkt3_2FJM22EqYO9KfX3_0t0AArUSAAIwjJBKqm_lcIgsxjEoBA
+    - CAACAgIAAxkBAAMJYrDKoBvMkNWnVwVMJ9TN6FQrV5EAAqoUAAKlMpFKAqn7nam6uhsoBA
+    - CAACAgIAAxkBAAMLYrDKtB-2PQMasnxS7w4AAX-wGLiCAAMTAAL804lK2XgL7tFaaf0oBA
+    - CAACAgIAAxkBAAMNYrDKvNPGRQpSWmu3uFIxUYZNZS4AAr8QAAJCzIlKcrX4vFucSA8oBA
+    - CAACAgIAAxkBAAMPYrDKxrAK_d1fSol1_BDUIHS-wrUAArcVAAIgyJBKyEphm2_DZ8koBA

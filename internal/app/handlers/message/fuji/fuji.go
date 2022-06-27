@@ -1,7 +1,7 @@
 package fuji
 
 import (
-	"github.com/antonpriyma/RSCC/internal/pkg/handlers/message"
+	"github.com/antonpriyma/RSCC/internal/app/handlers/message"
 	"github.com/antonpriyma/RSCC/pkg/log"
 	"github.com/pkg/errors"
 	tele "gopkg.in/telebot.v3"

@@ -1,17 +1,21 @@
 package main
 
-import "github.com/antonpriyma/RSCC/internal/pkg/handlers/message/fuji"
+import (
+	"github.com/antonpriyma/RSCC/internal/app/handlers/message/fuji"
+	"github.com/antonpriyma/RSCC/internal/app/handlers/message/text"
+	"github.com/antonpriyma/RSCC/internal/pkg/config"
+)
 
 type Config struct {
-	BotConfig      `mapstructure:"bot"`
-	HandlersConfig `mapstructure:"handlers"`
+	config.BotConfig `mapstructure:"bot"`
+	HandlersConfig   `mapstructure:"handlers"`
 }
 
-type BotConfig struct {
-	BotKey string `mapstructure:"bot_key"`
-	Debug  bool   `mapstructure:"debug"`
+func (c Config) Validate() error {
+	return nil
 }
 
 type HandlersConfig struct {
 	Fuji fuji.Config `mapstructure:"fuji"`
+	Text text.Config `mapstructure:"text"`
 }
