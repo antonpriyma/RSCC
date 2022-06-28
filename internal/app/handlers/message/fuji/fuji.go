@@ -62,6 +62,6 @@ func (h fujiHandler) sendWileePhoto(ctx tele.Context) error {
 		Caption: h.PhotoDesc,
 	}
 
-	err = ctx.Send(photo)
+	err = ctx.Reply(photo)
 	return errors.Wrap(err, "failed to send photo")
 }

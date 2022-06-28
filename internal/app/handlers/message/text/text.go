@@ -6,6 +6,7 @@ import (
 	"github.com/pkg/errors"
 	tele "gopkg.in/telebot.v3"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -33,9 +34,11 @@ func (h textHandler) Handle(ctx tele.Context) error {
 func (h textHandler) sendTextReply(ctx tele.Context) error {
 	rand.Seed(time.Now().UnixNano())
 
-	if replies := h.Replies[ctx.Text()]; len(replies) > 0 {
-		err := ctx.Send(replies[rand.Intn(len(replies))])
-		return errors.Wrap(err, "failed to send reply")
+	for text, reply := range h.Replies {
+		if strings.Contains(strings.ToLower(ctx.Text()), text) && len(reply) > 0 {
+			err := ctx.Reply(reply[rand.Intn(len(reply))])
+			return errors.Wrap(err, "failed to send reply")
+		}
 	}
 
 	return nil
