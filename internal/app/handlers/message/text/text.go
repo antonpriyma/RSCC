@@ -4,6 +4,7 @@ import (
 	"github.com/antonpriyma/RSCC/internal/app/handlers/message"
 	"github.com/antonpriyma/RSCC/pkg/log"
 	"github.com/pkg/errors"
+	"golang.org/x/time/rate"
 	tele "gopkg.in/telebot.v3"
 	"math/rand"
 	"strings"
@@ -13,17 +14,22 @@ import (
 type Config struct {
 	// trigger_word:reply
 	Replies map[string][]string `mapstructure:"replies"`
+
+	// limit per minute
+	Limit float64 `mapstructure:"limit"`
 }
 
 type textHandler struct {
 	Config
-	Logger log.Logger
+	Logger  log.Logger
+	Limiter *rate.Limiter
 }
 
 func New(c Config, logger log.Logger) message.Handler {
 	return textHandler{
-		Config: c,
-		Logger: logger,
+		Config:  c,
+		Logger:  logger,
+		Limiter: rate.NewLimiter(rate.Limit(c.Limit/60), 1),
 	}
 }
 
@@ -36,8 +42,10 @@ func (h textHandler) sendTextReply(ctx tele.Context) error {
 
 	for text, reply := range h.Replies {
 		if strings.Contains(strings.ToLower(ctx.Text()), text) && len(reply) > 0 {
-			err := ctx.Reply(reply[rand.Intn(len(reply))])
-			return errors.Wrap(err, "failed to send reply")
+			if h.Limiter.Allow() {
+				err := ctx.Reply(reply[rand.Intn(len(reply))])
+				return errors.Wrap(err, "failed to send reply")
+			}
 		}
 	}
 

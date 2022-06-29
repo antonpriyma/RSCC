@@ -10,7 +10,10 @@ handlers:
     trigger_words:
       - фудж
       - fuji
+#   2 per minute
+    limit: 2
   text:
+    limit: 10
     replies:
       merida:
         - Ну ваще гении, согласен.
@@ -40,7 +43,7 @@ handlers:
 
 
 morning_greeter:
-  greeting_text: Доброе утро, чят ❤️! Жара пиздец
+  greeting_text: Доброе четвергачевое утро, чят
   #   test_id
   chat_id: -1001308366801
   #  starts with Sunday

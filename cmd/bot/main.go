@@ -25,7 +25,7 @@ func main() {
 	cfg := Config{}
 	err := config.LoadConfig(*cfgPath, &cfg)
 	utils.Must(logger, err, "failed to load config")
-	logger.Infof("read config: %v", cfg)
+	logger.Infof("read config: %+v", cfg)
 
 	// init bot
 	pref := tele.Settings{
