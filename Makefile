@@ -7,8 +7,7 @@ build_api:
 
 
 build_docker_bot:
-	 docker build --platform=linux/amd64 -f ./build/docker/bot/Dockerfile . -t antonpriyma/rscc_bot:latest
-     docker push antonpriyma/rscc_bot:latest
+	 docker build --platform=linux/amd64 -f ./build/docker/bot/Dockerfile . -t antonpriyma/rscc_bot:latest; docker push antonpriyma/rscc_bot:latest
 
 
 .PHONY: build_morning_greeter

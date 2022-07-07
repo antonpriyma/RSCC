@@ -10,8 +10,9 @@ type Config interface {
 }
 
 type BotConfig struct {
-	BotKey string `mapstructure:"bot_key"`
-	Debug  bool   `mapstructure:"debug"`
+	BotKey     string `mapstructure:"bot_key"`
+	Debug      bool   `mapstructure:"debug"`
+	ReplyLimit int    `mapstructure:"reply_limit"`
 }
 
 func LoadConfig(path string, config Config) error {

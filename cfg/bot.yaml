@@ -1,5 +1,6 @@
 bot:
   debug: true
+  reply_limit: 1
   #  TODO: to vault
   bot_key: 1652329832:AAHSL2CrNQt19fCGHzJcle_kjktyNofpmVs
 
@@ -10,10 +11,10 @@ handlers:
     trigger_words:
       - фудж
       - fuji
-#   2 per minute
-    limit: 2
+#   1 per 5 minute
+  join:
+    welcome_message: Welcome! Кидай фотку своего водопровода на оценку
   text:
-    limit: 10
     replies:
       merida:
         - Ну ваще гении, согласен.
@@ -43,7 +44,7 @@ handlers:
 
 
 morning_greeter:
-  greeting_text: Доброе четвергачевое утро, чят
+  greeting_text: Доброе утро, чят
   #   test_id
   chat_id: -1001308366801
   #  starts with Sunday

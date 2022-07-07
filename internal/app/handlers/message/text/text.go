@@ -1,7 +1,7 @@
 package text
 
 import (
-	"github.com/antonpriyma/RSCC/internal/app/handlers/message"
+	"github.com/antonpriyma/RSCC/internal/app/handlers"
 	"github.com/antonpriyma/RSCC/pkg/log"
 	"github.com/pkg/errors"
 	"golang.org/x/time/rate"
@@ -25,11 +25,11 @@ type textHandler struct {
 	Limiter *rate.Limiter
 }
 
-func New(c Config, logger log.Logger) message.Handler {
+func New(c Config, logger log.Logger, limiter *rate.Limiter) handlers.Handler {
 	return textHandler{
 		Config:  c,
 		Logger:  logger,
-		Limiter: rate.NewLimiter(rate.Limit(c.Limit/60), 1),
+		Limiter: limiter,
 	}
 }
 

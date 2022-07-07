@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/antonpriyma/RSCC/internal/app/handlers/join"
 	"github.com/antonpriyma/RSCC/internal/app/handlers/message/fuji"
 	"github.com/antonpriyma/RSCC/internal/app/handlers/message/text"
 	"github.com/antonpriyma/RSCC/internal/pkg/config"
@@ -18,4 +19,5 @@ func (c Config) Validate() error {
 type HandlersConfig struct {
 	Fuji fuji.Config `mapstructure:"fuji"`
 	Text text.Config `mapstructure:"text"`
+	Join join.Config `mapstructure:"join"`
 }

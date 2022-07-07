@@ -46,6 +46,10 @@ func (t task) Run() error {
 }
 
 func (t task) sendTextMessage() error {
+	if t.GreetingText == "" {
+		return nil
+	}
+
 	_, err := t.Bot.Send(
 		&tele.Chat{ID: t.ChatID},
 		t.GreetingText,
